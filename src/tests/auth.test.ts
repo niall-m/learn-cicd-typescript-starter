@@ -10,7 +10,7 @@ describe("getAPIKey", () => {
   });
   
   test("returns null if authorization header is not in the correct format", () => {
-    const headers = { "authorization": "ApiKey some-token" };
+    const headers = { "authorization": "Bearer some-token" };
     const result = getAPIKey(headers);
     expect(result).toBeNull();
   });
