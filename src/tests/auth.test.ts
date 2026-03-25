@@ -8,15 +8,15 @@ describe("getAPIKey", () => {
     const result = getAPIKey(headers);
     expect(result).toBeNull();
   });
-  
+
   test("returns null if authorization header is not in the correct format", () => {
-    const headers = { "authorization": "Bearer some-token" };
+    const headers = { authorization: "Bearer some-token" };
     const result = getAPIKey(headers);
     expect(result).toBeNull();
   });
 
   test("returns the API key if authorization header is in the correct format", () => {
-    const headers = { "authorization": "ApiKey my-secret-key" };
+    const headers = { authorization: "ApiKey my-secret-key" };
     const result = getAPIKey(headers);
     expect(result).toBe("my-secret-key");
   });
